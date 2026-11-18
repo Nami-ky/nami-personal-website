@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ef">
+  <meta name="description" content="朱珂雅的个人主页：材料科学博士在读，关注 AI 产品、大模型应用与科研工作流。">
+  <title>朱珂雅 — AI 产品与科研工作流</title>
+  <style>
+    :root {
+      --paper: #f6f4ef;
+      --ink: #18231f;
+      --muted: #637069;
+      --line: #d8ddd6;
+      --green: #174b3c;
+      --lime: #c8e383;
+      --orange: #df714d;
+      --card: #fffefa;
+      --serif: Georgia, "Noto Serif SC", "Songti SC", serif;
+      --sans: Inter, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 90% 0%, rgba(200,227,131,.23), transparent 34rem),
+        var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1080px, calc(100% - 48px)); margin-inline: auto; }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 25px 0; border-bottom: 1px solid var(--line);
+    }
+    .brand { font-size: 13px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+    nav { display: flex; gap: 27px; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
+    nav a:hover { color: var(--green); }
+    .hero { padding: 92px 0 76px; display: grid; grid-template-columns: 1fr 270px; gap: 48px; align-items: center; }
+    .eyebrow { color: var(--green); font-size: 12px; font-weight: 750; letter-spacing: .15em; text-transform: uppercase; }
+    h1 { margin: 15px 0 17px; font: 500 clamp(46px, 7vw, 78px)/1.08 var(--serif); letter-spacing: -.045em; }
+    h1 span { color: var(--green); }
+    .intro { max-width: 650px; color: #4d5b53; font-size: 17px; }
+    .actions { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+    .button { display: inline-flex; align-items: center; gap: 8px; padding: 11px 17px; border: 1px solid var(--green); border-radius: 999px; color: var(--green); text-decoration: none; font-size: 13px; font-weight: 700; }
+    .button.primary { background: var(--green); color: white; }
+    .button:hover { transform: translateY(-2px); }
+    .orbit {
+      aspect-ratio: 1; border-radius: 50%; position: relative; overflow: hidden;
+      background: var(--green); display: grid; place-items: center;
+      box-shadow: 18px 22px 0 rgba(200,227,131,.62);
+    }
+    .orbit::before, .orbit::after { content:""; position:absolute; border:1px solid rgba(255,255,255,.26); border-radius:50%; width:78%; aspect-ratio:1; }
+    .orbit::after { width:54%; }
+    .orbit .core { z-index:1; width:74px; aspect-ratio:1; border-radius:50%; background:var(--lime); display:grid; place-items:center; color:var(--green); font: 30px var(--serif); }
+    .orbit .label { position:absolute; z-index:2; color:#f7f6ed; font-size:10px; letter-spacing:.16em; text-transform:uppercase; }
+    .orbit .top { top:17%; } .orbit .bottom { bottom:16%; }
+    .orbit .dot { width:13px; height:13px; position:absolute; border-radius:50%; background:var(--orange); top:24%; right:21%; box-shadow:0 0 0 8px rgba(223,113,77,.18); }
+    .metrics { display:grid; grid-template-columns:repeat(3, 1fr); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .metric { padding:22px 12px 22px 0; }
+    .metric strong { display:block; color:var(--green); font: 27px var(--serif); }
+    .metric span { color:var(--muted); font-size:12px; }
+    section { padding:74px 0; }
+    .section-head { display:flex; align-items:baseline; justify-content:space-between; gap:20px; margin-bottom:28px; }
+    h2 { margin:0; font: 500 34px/1.2 var(--serif); letter-spacing:-.025em; }
+    .section-no { color:var(--orange); font-size:12px; font-weight:800; letter-spacing:.15em; }
+    .about-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:48px; }
+    .about-copy { font: 19px/1.8 var(--serif); max-width:620px; }
+    .about-copy p { margin:0 0 17px; }
+    .note { color:var(--muted); font:14px/1.8 var(--sans); }
+    .skill-list { display:flex; flex-wrap:wrap; gap:9px; align-content:start; }
+    .chip { border:1px solid var(--line); background:rgba(255,255,255,.45); padding:8px 12px; border-radius:999px; color:#45544b; font-size:12px; }
+    .projects { display:grid; grid-template-columns:repeat(2, 1fr); gap:16px; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:17px; padding:25px; min-height:230px; display:flex; flex-direction:column; }
+    .card-top { display:flex; justify-content:space-between; gap:15px; align-items:start; }
+    .card h3 { margin:0; font: 500 23px/1.35 var(--serif); }
+    .tag { color:var(--green); background:#edf2e5; border-radius:999px; padding:5px 9px; white-space:nowrap; font-size:10px; font-weight:750; }
+    .card p { color:var(--muted); font-size:14px; margin:14px 0 20px; }
+    .card ul { padding-left:17px; margin:0; color:#4c5b52; font-size:13px; }
+    .card li { margin:5px 0; }
+    .timeline { border-top:1px solid var(--line); }
+    .row { display:grid; grid-template-columns:190px 1fr; gap:28px; padding:24px 0; border-bottom:1px solid var(--line); }
+    .date { color:var(--muted); font-size:12px; padding-top:5px; }
+    .row h3 { margin:0; font-size:16px; }
+    .row .org { color:var(--green); font-size:13px; margin-top:3px; }
+    .row p { color:var(--muted); font-size:13px; margin:10px 0 0; max-width:720px; }
+    .closing { background:var(--green); color:white; border-radius:22px; padding:38px; display:flex; justify-content:space-between; align-items:center; gap:20px; }
+    .closing h2 { font-size:28px; }
+    .closing p { color:#d2dfd6; font-size:13px; margin-bottom:0; }
+    .closing .button { color:var(--green); background:var(--lime); border-color:var(--lime); white-space:nowrap; }
+    footer { padding:30px 0 38px; display:flex; justify-content:space-between; color:var(--muted); font-size:11px; }
+    @media (max-width: 720px) {
+      .wrap { width:min(100% - 32px, 560px); }
+      header { padding:18px 0; } nav { gap:13px; } nav a { font-size:11px; }
+      .hero { grid-template-columns:1fr; padding:64px 0 48px; gap:38px; }
+      .orbit { width:190px; justify-self:center; grid-row:1; }
+      .intro { font-size:15px; }
+      section { padding:55px 0; }
+      .about-grid, .projects { grid-template-columns:1fr; gap:16px; }
+      .row { grid-template-columns:1fr; gap:5px; padding:19px 0; }
+      .closing { align-items:flex-start; flex-direction:column; padding:27px; }
+      footer { flex-direction:column; gap:5px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .button:hover { transform:none; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#" style="text-decoration:none">KEYA ZHU <span style="color:var(--orange)">/</span> Portfolio</a>
+      <nav aria-label="主导航">
+        <a href="#about">关于</a>
+        <a href="#work">项目</a>
+        <a href="#journey">经历</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <div class="eyebrow">Materials × AI × Product</div>
+          <h1 id="hero-title">你好，我是<br><span>朱珂雅。</span></h1>
+          <p class="intro">材料科学与工程博士在读，曾任研发工程师。现在，我把科研训练、产品思维和 AI 工具结合起来，探索更顺手的研究工作流与大模型应用。</p>
+          <div class="actions">
+            <a class="button primary" href="#work">看看我的项目 <span aria-hidden="true">↘</span></a>
+            <a class="button" href="https://github.com/Nami-ky" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="orbit" aria-label="材料科学与人工智能交汇的视觉图形">
+          <span class="label top">Curiosity in motion</span>
+          <span class="core">朱</span>
+          <span class="label bottom">Research · Build · Refine</span>
+          <span class="dot"></span>
+        </div>
+      </section>
+
+      <div class="metrics" aria-label="个人概况">
+        <div class="metric"><strong>PhD</strong><span>材料科学与工程 · 在读</span></div>
+        <div class="metric"><strong>AI × R&amp;D</strong><span>科研工作流与智能体实践</span></div>
+        <div class="metric"><strong>2018—</strong><span>从化学与材料走向产品探索</span></div>
+      </div>
+
+      <section id="about">
+        <div class="section-head"><h2>把复杂问题，变成可用的工具。</h2><span class="section-no">01 / ABOUT</span></div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>我习惯先理解真实场景，再把问题拆成清晰的功能和步骤。</p>
+            <p class="note">材料研发经历让我熟悉实验与生产现场；博士阶段的科研训练，让我持续处理文献、数据和复杂信息。使用 Codex 做项目时，我也会从需求、流程、提示词到输出格式反复打磨，尽量让工具真正融入工作。</p>
+          </div>
+          <div class="skill-list" aria-label="核心能力">
+            <span class="chip">需求梳理 · 用户场景</span><span class="chip">PRD · 功能拆解</span>
+            <span class="chip">AI 智能体与 Codex</span><span class="chip">Vibe Coding</span>
+            <span class="chip">Python · 文件处理</span><span class="chip">JSON / PDF / Excel</span>
+            <span class="chip">文献检索与原文核验</span><span class="chip">Obsidian 工作流</span>
+            <span class="chip">研发工艺与质量流程</span><span class="chip">英文技术检索 · CET-6</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="work">
+        <div class="section-head"><h2>近期项目</h2><span class="section-no">02 / SELECTED WORK</span></div>
+        <div class="projects">
+          <article class="card">
+            <div class="card-top"><h3>材料硕博科研导航 Skill</h3><span class="tag">AI 产品 · Vibe Coding</span></div>
+            <p>面向材料类硕博的科研资源与工具导航项目，从真实的信息查找需求出发，把想法整理为产品方案并完成 Skill 搭建。</p>
+            <ul><li>梳理目标用户、核心场景、功能模块与交付形式</li><li>将能力拆分为资源分类、检索导航、任务引导和结果输出</li><li>持续调整提示词、操作流程与输出格式</li></ul>
+          </article>
+          <article class="card">
+            <div class="card-top"><h3>科研文献整理与数据处理</h3><span class="tag">Codex + Python</span></div>
+            <p>围绕科研专题建立结构化文献整理流程，把多来源信息转成可追溯、可比较的研究资料。</p>
+            <ul><li>提取文献信息并进行分类对比和原文核验</li><li>处理 JSON、PDF、Excel，完成合并、DOI 去重与规则评分</li><li>生成分析表格、报告与机制图，并回写 Obsidian</li></ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="journey">
+        <div class="section-head"><h2>经历与学习</h2><span class="section-no">03 / JOURNEY</span></div>
+        <div class="timeline">
+          <article class="row"><div class="date">2024.09 — 至今</div><div><h3>博士研究生 · 材料科学与工程</h3><div class="org">湖南工业大学｜新能源材料与器件方向</div><p>持续开展材料领域研究，关注科研信息整理、数据处理与工作流效率。</p></div></article>
+          <article class="row"><div class="date">2023.07 — 2024.06</div><div><h3>研发工程师</h3><div class="org">浙江尤夫高新纤维股份有限公司</div><p>参与 PET 新产品研发与熔融纺丝工艺优化；参与 QMS 文件修订、生产指标追踪、客户反馈收集及行业信息分析。</p></div></article>
+          <article class="row"><div class="date">2020.09 — 2023.06</div><div><h3>硕士 · 材料与化工</h3><div class="org">大连工业大学｜气凝胶材料方向</div><p>建立材料研究、实验分析与科技写作的系统训练。</p></div></article>
+          <article class="row"><div class="date">2014.09 — 2018.06</div><div><h3>本科 · 化学教育</h3><div class="org">河北民族师范学院｜有机合成方向</div><p>形成化学与材料领域的专业基础；第一作者发表 SCI 论文。</p></div></article>
+        </div>
+      </section>
+
+      <section style="padding-top:10px">
+        <div class="closing">
+          <div><h2>让研究经验，长出新的产品可能。</h2><p>欢迎交流 AI 产品、大模型应用与科研工作流实践。</p></div>
+          <a class="button" href="https://github.com/Nami-ky" target="_blank" rel="noreferrer">在 GitHub 找到我 ↗</a>
+        </div>
+      </section>
+    </main>
+
+    <footer><span>© <span id="year">2026</span> 朱珂雅</span><span>用好奇心连接材料、研究与 AI。</span></footer>
+  </div>
+</body>
+</html>
